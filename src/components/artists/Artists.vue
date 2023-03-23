@@ -27,7 +27,7 @@
           @click.prevent="editArtist(artist)">Edit</button>
 
           <button class="bg-transprent text-sm hover:bg-red text-red hover:text-white no-underline font-bold py-2 px-4 rounded border border-red"
-          @click.prevent="removeArtist(artist)">Delete</button>
+         @click.prevent="removeArtist(artist)">Delete</button>
         </div>
 
         <div v-if="artist == editedArtist">
@@ -73,6 +73,7 @@ export default {
         return
       }
       this.$http.secured.post('/api/v1/artists/', { artist: { name: this.newArtist.name } })
+
         .then(response => {
           this.artists.push(response.data)
           this.newArtist = ''
